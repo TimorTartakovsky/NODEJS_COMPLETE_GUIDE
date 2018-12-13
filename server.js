@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminRoutes.routes);
 app.use('/shop', shopRoutes.routes);
+app.use('/', shopRoutes.routes);
 
 app.use(errorController.get404);
 

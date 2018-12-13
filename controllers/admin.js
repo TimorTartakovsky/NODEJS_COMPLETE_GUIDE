@@ -8,7 +8,7 @@ exports.getAddProduct = (req, res, next) => {
 	  productCSS: true,
 	  activeAddProduct: true
 	});
-  };
+};
 
 exports.postAddProduct = (req, res, next) => {
 	const product = new Product(req.body.title);
@@ -18,13 +18,10 @@ exports.postAddProduct = (req, res, next) => {
 
 exports.getProducts = (req, res, next) => {
 	Product.fetchAll((allProducts) => {
-		res.render('shop/product-list', {
+		res.render('shop/products', {
 			prods: allProducts,
-			pageTitle: 'Shop',
-			path: '/',
-			hasProducts: allProducts.length > 0,
-			activeShop: true,
-			productCSS: true
+			pageTitle: 'Admin Products',
+			path: '/admin/products',
 		});
 	});
-}
+};
